@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -a /var/run/pingg_failure ]; then
+  echo "Currently failing"
+else
+  echo "pingg is not running or its status is ok."
+fi

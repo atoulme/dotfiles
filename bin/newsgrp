@@ -1,0 +1,13 @@
+#!/bin/sh
+
+
+if [ $1 = "babel" ]; then
+  newsgroup="eclipse.technology.babel"
+else 
+  if [ $1 = "bpmn" ]; then
+    newsgroup="eclipse.bpmn-modeler"
+  else
+    newsgroup=$1
+  fi
+fi
+open http://www.eclipse.org/newsportal/thread.php?group=$newsgroup

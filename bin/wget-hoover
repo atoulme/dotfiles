@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# This quick-and-dirty script was written to download
+# a bunch of documents from a website.
+#
+# To access the relevant page the user is taken to a login form,
+# itself protected by a was a basic authentication mechanism.
+#
+#
+ 
+ 
+# the URL to be fetched
+URL=$1 #"http://..."
+# where to dump files?
+DEST=$2 #"~/dunp"
+# a log file
+LOG="$DEST/log.txt"
+# filter the file extensions to be downloaded
+EXT=$3 #"pdf,ppt"
+# basic authentication credentials
+CRED="" #"--http-password=foo --http-user=bar"
+ 
+# first access : we need to pass basic authentication credentials and the form data
+# the cookie will keep the session opened
+wget -Y off $CRED --keep-session-cookies --save-cookies cookies.tmp --post-data="form=data&..." $URL
+ 
+# now that a session is opened, we can access the relevant page and suck up all the docs we wish
+wget $CRED -r -l1 -A$EXT --load-cookies="cookies.tmp" -A$EXT -P$DEST -o$LOG $URL \
+  --user-agent="Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.0.1) Gecko/20060111 Firefox/1.5.0.1"

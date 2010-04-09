@@ -1,0 +1,24 @@
+#!/usr/bin/env ruby
+
+# Create a new .project file at the current path, with the project name passed in argument
+
+File.open(".project", "w+") do |p|
+  p.write <<-PROJECT
+<projectDescription>
+  <name>#{$*[0]}</name>
+  <comment/>
+  <projects/>
+  <buildSpec>
+    <buildCommand>
+      <name>org.eclipse.jdt.core.javabuilder</name>
+      <arguments/>
+    </buildCommand>
+  </buildSpec>
+  <natures>
+    <nature>org.eclipse.jdt.core.javanature</nature>
+  </natures>
+</projectDescription>
+
+PROJECT
+
+end

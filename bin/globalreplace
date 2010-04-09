@@ -1,0 +1,14 @@
+#!/bin/sh
+
+#Usage: globalreplace * é \u00e9
+find . -name $1 |
+while read filename
+do
+(
+  echo $filename
+  sed "s/$2/$3/g;" $filename> $filename.xx
+  mv $filename.xx $filename
+)
+done
+
+

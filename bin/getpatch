@@ -1,0 +1,3 @@
+#!/bin/sh
+
+wget -O $1 http://fisheye.intalio.com/rdiff/n3-svn?csid=$1

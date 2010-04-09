@@ -1,0 +1,39 @@
+ [color]
+    branch = auto
+    diff = auto
+    status = auto
+  [color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+  [color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+  [color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+ 
+[user]
+  email = antoine@lunar-ocean.com
+  name = Antoine Toulme
+ 
+ [alias]
+         ci = commit
+         co = checkout
+         st = status
+# show difference between the HEAD and the index
+         staged = diff --cached
+# show difference between working tree and the index
+         unstaged = diff
+# show staged and unstaged changes (what would be committed with "git commit -a")
+         both = diff HEAD
+         dh = diff HEAD
+# quick access to oneline log format
+         oneline = log --pretty=oneline
+ 
+ 
+#  mya = !git apply --whitespace=fix $1 && git status
+# myci = !grep 'Subject:' $1 | sed -e 's/Subject: \[PATCH\] \(.*\)/\1/' | git commit -a --file=-

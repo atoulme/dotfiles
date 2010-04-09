@@ -1,0 +1,16 @@
+#!/bin/sh
+while ! ping -c 1 -t 10 $1 1>/dev/null; do
+    d=`date "+%H:%M:%S"`
+    msg="$d> $1 is offline"
+    msg_c="\e[0;31m$msg\e[0m"
+    echo $msg_c
+    growl $msg
+    touch /var/run/pingg_failure
+    sleep 600
+done
+d=`date "+%H:%M:%S"`
+msg="$d> $1 is back up!"
+echo $msg
+growl -emergency -sticky $msg
+rm /var/run/pingg_failure
+

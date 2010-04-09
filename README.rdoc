@@ -1,0 +1,4 @@
+=dotfiles
+
+These are my dotfiles, a collection of things that go in my home folder and make my life easier overall.
+They are tailored for Mac, using the Growl scripts quite a bit.

@@ -1,0 +1,4 @@
+#!/bin/sh
+echo "Starting"
+find ~/Downloads \( ! -name Downloads -prune \) -mtime +5 -exec mv "{}" ~/older \;
+echo "Done!"

@@ -1,0 +1,3 @@
+#!/bin/sh
+
+pingg $1 1>>/var/log/pinggd 2>>/var/log/pinggd &
