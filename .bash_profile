@@ -29,11 +29,12 @@ alias h='history'
 
 export global MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512m"
 
-export SCALA_HOME="~/scala"
-export GROOVY_HOME="~/tools/groovy-1.7.1"
+export SCALA_HOME="/Users/antoine/tools/scala-2.8.0.final"
+export GROOVY_HOME="/Users/antoine/tools/groovy-1.7.1"
+export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
 
-export global PATH=$PATH":/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:~/tools/maven-2.0.6/bin:~/.gem/ruby/1.8/bin:~/tools/buildr-1.3.5-jruby-1.4.0/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin"
-#"~/tools/buildr-1.3.5-jruby-1.4.0/bin"
+export global PATH=$PATH":~/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin"
+alias mvn=~/tools/mvn3/bin/mvn
 
 function parse_git_branch {
   [ -d .git ] || return 1
@@ -434,7 +435,7 @@ function osacompile_rsrc () { osacompile -x -r scpt:128 -o $1 $1; }
 # e.g.: ls -l /private/var/tmp/mds/$(id -u)
 
 # If not running interactively, don't do anything
-[ -z "$PS1" ] && return
+if [ -z "$PS1" ] ; then
 
 ####################################
 # History Settings
@@ -451,4 +452,11 @@ export HISTCONTROL=ignoreboth
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
+fi
+#RVM!
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+
+export NARWHAL_ENGINE=jsc
+
+export PATH="/Users/antoine/narwhal/bin:$PATH"
