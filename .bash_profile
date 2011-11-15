@@ -26,6 +26,7 @@ alias .p='source ~/.bash_profile'
 alias ?='h | g '
 alias g='grep'
 alias h='history'
+alias cls='tput clear'
 
 export global MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512m"
 
@@ -36,31 +37,14 @@ export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
 export global PATH=$PATH":~/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin"
 alias mvn=~/tools/mvn3/bin/mvn
 
+function parse_git_dirty {
+  git diff --quiet HEAD &>/dev/null
+    [[ $? == 1 ]] && echo "*"
+} 
 function parse_git_branch {
-  [ -d .git ] || return 1
-  git_status="$(git status 2> /dev/null)"
-  branch_pattern="^# On branch ([^${IFS}]*)"
-  remote_pattern="# Your branch is (.*) of"
-  diverge_pattern="# Your branch and (.*) have diverged"
-  if [[ ! ${git_status}} =~ "working directory clean" ]]; then
-    state="*"
-  fi
-  # add an else if or two here if you want to get more specific
-  if [[ ${git_status} =~ ${remote_pattern} ]]; then
-    if [[ ${BASH_REMATCH[1]} == "ahead" ]]; then
-      remote="↑"
-    else
-      remote="↓"
-    fi
-fi
-if [[ ${git_status} =~ ${diverge_pattern} ]]; then
-  remote="↕"
-fi
-if [[ ${git_status} =~ ${branch_pattern} ]]; then
-  branch=${BASH_REMATCH[1]}
-    echo ":${branch}${state}${remote}"
-  fi
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
+
 
 #export global PS1="\[\033[0;37m\]\t\[\033[0m|\[\033[0;34m\w\[\033[0m|> "
 PS1="\[\033[0;37m\]\t\[\033[01;34m\]\w\[\033[00m\]\$(parse_git_branch)>"
