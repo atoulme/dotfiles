@@ -2,15 +2,13 @@ alias vim=/Applications/vim/mvim
 
 function st {
 	svn st $@
-	growl "`pwd` status done"
+	growlNotify -n "SVN" -m "`pwd` status done"
 }
 
 function up {
 	svn up $@
-	growl "`pwd` updated"
+	growlNotify -n "SVN" -m "`pwd` updated"
 }
-#alias up='svn up "$@"; growl `pwd` updated'
-#alias st='svn st "$@"; growl `pwd` status done'
 alias di="svn diff"
 alias cfct="st |grep ^C"
 alias modif="st | grep ^M"

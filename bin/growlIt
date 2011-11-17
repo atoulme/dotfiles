@@ -1,2 +1,0 @@
-#!/bin/sh
-sh /tmp/growlIt | xargs /Users/antoine/bin/growl 
