@@ -438,7 +438,5 @@ fi
 #RVM!
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
+for f in ~/.bash.d/*; do source $f; done
 
-export NARWHAL_ENGINE=jsc
-
-export PATH="/Users/antoine/narwhal/bin:$PATH"
