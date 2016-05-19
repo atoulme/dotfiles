@@ -20,22 +20,22 @@
 	email = antoine@lunar-ocean.com
 	name = Antoine Toulme
  
- [alias]
-         ci = commit
-         co = checkout
-         st = status
+[alias]
+        ci = commit
+        co = checkout
+        st = status
 # show difference between the HEAD and the index
-         staged = diff --cached
+        staged = diff --cached
 # show difference between working tree and the index
-         unstaged = diff
+        unstaged = diff
 # show staged and unstaged changes (what would be committed with "git commit -a")
-         both = diff HEAD
-         dh = diff HEAD
+        both = diff HEAD
+        dh = diff HEAD
 # quick access to oneline log format
-         oneline = log --pretty=oneline
-	     logui = log --all --graph --decorate --pretty='format:%C(yellow)%h%d %Cblue[%an]%Creset %s'
+        oneline = log --pretty=oneline
+	logui = log --all --graph --decorate --pretty='format:%C(yellow)%h%d %Cblue[%an]%Creset %s'
 # unpushed commits
-         unpushed = log origin/master...HEAD         
+        unpushed = log origin/master...HEAD         
  
 #  mya = !git apply --whitespace=fix $1 && git status
 # myci = !grep 'Subject:' $1 | sed -e 's/Subject: \[PATCH\] \(.*\)/\1/' | git commit -a --file=-
