@@ -28,11 +28,13 @@ alias cls='tput clear'
 
 export global MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512m"
 
-export SCALA_HOME="/Users/antoine/tools/scala-2.8.0.final"
-export GROOVY_HOME="/Users/antoine/tools/groovy-1.7.1"
-export JAVA_HOME="/System/Library/Frameworks/JavaVM.framework/Home"
+export SCALA_HOME="/Users/lb/tools/scala-2.8.0.final"
+export GROOVY_HOME="/Users/lb/tools/groovy-1.7.1"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home"
+export GRADLE_HOME="/Users/lb/tools/gradle-2.8"
 
-export global PATH=$PATH":~/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin"
+
+export global PATH=$PATH":~/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin"
 alias mvn=~/tools/mvn3/bin/mvn
 
 function parse_git_dirty {
@@ -385,6 +387,8 @@ function locateql ()
 }
 
 alias cdf='eval `osascript /Applications/OpenTerminal.app/Contents/Resources/Scripts/OpenTerminal.scpt `'
+alias scppasswd="scp -o PreferredAuthentications=password -o PubkeyAuthentication=no"
+alias sshpasswd="ssh -o PreferredAuthentications=password -o PubkeyAuthentication=no"
 
 #--------
 # Safari:

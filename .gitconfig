@@ -17,8 +17,8 @@
     untracked = cyan
  
 [user]
-  email = antoine@lunar-ocean.com
-  name = Antoine Toulme
+	email = antoine@lunar-ocean.com
+	name = Antoine Toulme
  
  [alias]
          ci = commit
@@ -43,3 +43,10 @@
 #	external = /Users/antoine/opendiff-git.sh
 [core]
 	autocrlf = input
+	excludesfile = /Users/lb/.gitignore_global
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
