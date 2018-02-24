@@ -30,7 +30,7 @@ export global MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512m"
 
 export SCALA_HOME="/Users/lb/tools/scala-2.8.0.final"
 export GROOVY_HOME="/Users/lb/tools/groovy-1.7.1"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_65.jdk/Contents/Home"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/"
 export GRADLE_HOME="/Users/lb/tools/gradle-2.8"
 
 
@@ -420,15 +420,13 @@ function osacompile_rsrc () { osacompile -x -r scpt:128 -o $1 $1; }
 # numerical user id: 'id -u'
 # e.g.: ls -l /private/var/tmp/mds/$(id -u)
 
-# If not running interactively, don't do anything
-if [ -z "$PS1" ] ; then
-
 ####################################
 # History Settings
 ####################################
 shopt -s histappend # Make Bash append rather than overwrite the history on disk
 PROMPT_COMMAND='history -a' # Whenever displaying the prompt, write the previous line to disk
-HISTSIZE=3000
+export HISTSIZE=3000
+export HISTFILESIZE=3000
 # don't put duplicate lines in the history. See bash(1) for more options
 export HISTCONTROL=ignoredups
 # ... and ignore same sucessive entries.
@@ -438,7 +436,6 @@ export HISTCONTROL=ignoreboth
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
-fi
 #RVM!
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 
