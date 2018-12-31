@@ -19,6 +19,8 @@
 [user]
 	email = antoine@lunar-ocean.com
 	name = Antoine Toulme
+	#signingkey = 497D868E34784DE5
+	signingkey = EC1938B4C821B71A
  
 [alias]
         ci = commit

@@ -1,4 +1,4 @@
-alias vim=/Applications/vim/mvim
+alias vi=vim
 
 function st {
 	svn st $@
@@ -26,15 +26,15 @@ alias g='grep'
 alias h='history'
 alias cls='tput clear'
 
-export global MAVEN_OPTS="-Xmx1024M -XX:MaxPermSize=512m"
+export global MAVEN_OPTS="-Xmx1024M"
 
-export SCALA_HOME="/Users/lb/tools/scala-2.8.0.final"
-export GROOVY_HOME="/Users/lb/tools/groovy-1.7.1"
-export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_151.jdk/Contents/Home/"
-export GRADLE_HOME="/Users/lb/tools/gradle-2.8"
+export SCALA_HOME="/Users/$(whoami)/tools/scala-2.8.0.final"
+export GROOVY_HOME="/Users/$(whoami)/tools/groovy-1.7.1"
+export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_171.jdk/Contents/Home/"
+export GRADLE_HOME="/Users/$(whoami)/tools/gradle-2.8"
 
 
-export global PATH=$PATH":~/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin"
+export global PATH=$PATH":/Users/$(whoami)/tools/mvn3/bin:/opt/local/bin:~/bin:/usr/local/mysql/bin:~/tools/apache-ant-1.7.1/bin:$SCALA_HOME/bin:$GROOVY_HOME/bin:$GRADLE_HOME/bin"
 alias mvn=~/tools/mvn3/bin/mvn
 
 function parse_git_dirty {
